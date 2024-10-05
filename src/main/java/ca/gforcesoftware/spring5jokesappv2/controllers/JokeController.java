@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class JokeController {
    private final JokeService jokeService;
 
-    public JokeController(@Qualifier("jokeServiceImpl") JokeService jokeService) {
+    public JokeController( @Qualifier("jokeServiceImpl") JokeService jokeService) {
         this.jokeService = jokeService;
     }
 
     @RequestMapping({"/", ""})
-    public String getJoke(Model model) {
-       model.addAttribute("joke", jokeService.getJoke());
+    public String showJoke(Model model) {
+       model.addAttribute("LoadAjoke", jokeService.getJoke());
        return "index";
     }
 
